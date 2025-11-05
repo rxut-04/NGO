@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Home from "./pages/Home";
-import DonateOptions from "./pages/DonateOptions";
-import FoodDonation from "./pages/FoodDonation";
+import Home from "./src/pages/Home";
+import DonateOptions from "./src/pages/DonateOptions";
+import FoodDonation from "./src/pages/FoodDonation";
 
 function App() {
   return (

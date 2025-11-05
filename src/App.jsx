@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Pages (remove 'src/' from path)
 import Welcome from "./pages/Welcome";
 import Home from "./pages/Home";
 import DonateOptions from "./pages/DonateOptions";
@@ -11,8 +13,8 @@ import OccasionBooking from "./pages/OccasionBooking";
 import ClothesDonation from "./pages/ClothesDonation";
 import OldThingsDonation from "./pages/OldThingsDonation";
 import MoneyDonation from "./pages/MoneyDonation";
-import Activities from "./pages/Activities"; // 👈 Add this import
-import AboutUs from "./pages/AboutUs";  // 👈 Add this at top
+import Activities from "./pages/Activities";
+import AboutUs from "./pages/AboutUs";
 import Volunteers from "./pages/Volunteers";
 
 
