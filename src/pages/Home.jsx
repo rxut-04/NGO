@@ -20,19 +20,19 @@ function Home() {
 
   return (
     <div className="home-container">
-      {/* 🔝 Header */}
+      {/* 🌍 Transparent Header */}
       <header className="home-header">
         <div className="logo">
           <h2>🌍 NGOCONNECT</h2>
         </div>
-        <div className="header-buttons">
+        <nav className="header-buttons">
           <button onClick={() => (window.location.href = "/about")}>About Us</button>
           <button onClick={() => (window.location.href = "/login")}>Login</button>
           <button onClick={() => (window.location.href = "/register")}>Register</button>
-        </div>
+        </nav>
       </header>
 
-      {/* 🖼️ Background Slideshow */}
+      {/* 🖼️ Fullscreen Slideshow */}
       <div className="slideshow">
         {slides.map((slide, index) => (
           <img
@@ -42,59 +42,43 @@ function Home() {
             className={`slide ${index === current ? "active" : ""}`}
           />
         ))}
-      </div>
+        <div className="overlay"></div>
 
-      {/* ✨ Hero Section */}
-      <div className="home-content">
-        <h1>Bringing Hope. Inspiring Change.</h1>
-        <p>Join hands with NGOCONNECT to make a difference in someone’s life.</p>
-
-        <div className="home-buttons">
-          <button onClick={() => (window.location.href = "/donate-options")}>
-            💖 Donate Now
-          </button>
-          <button onClick={() => (window.location.href = "/activities")}>
-            🌍 Our Activities
-          </button>
+        {/* ✨ Centered Text on Image */}
+        <div className="hero-text">
+          <h1>Bringing Hope. Inspiring Change.</h1>
+          <p>Together, we can create a better tomorrow for those in need.</p>
+          <div className="hero-buttons">
+            <button onClick={() => (window.location.href = "/donate-options")}>
+              💖 Donate Now
+            </button>
+            <button onClick={() => (window.location.href = "/activities")}>
+              🌍 Our Activities
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* ❤️ Donate & Support Section */}
+      {/* ❤️ Support Section */}
       <section className="donate-support">
         <h2>Donate & Support</h2>
         <p>Your small contribution can create a big impact.</p>
-
         <div className="donate-grid">
-          <div
-            className="donate-card"
-            onClick={() => (window.location.href = "/food-donation")}
-          >
+          <div className="donate-card" onClick={() => (window.location.href = "/food-donation")}>
             <img src="/images/food-donation.jpg" alt="Food Donation" />
             <h3>🍲 Food Donation</h3>
           </div>
-
-          <div
-            className="donate-card"
-            onClick={() => (window.location.href = "/book-donation")}
-          >
+          <div className="donate-card" onClick={() => (window.location.href = "/books-donation")}>
             <img src="/images/education.jpg" alt="Book Donation" />
             <h3>📚 Book Donation</h3>
           </div>
-
-          <div
-            className="donate-card"
-            onClick={() => (window.location.href = "/cloth-donation")}
-          >
+          <div className="donate-card" onClick={() => (window.location.href = "/clothes-donation")}>
             <img src="/images/children-smile.jpg" alt="Cloth Donation" />
             <h3>👕 Cloth Donation</h3>
           </div>
-
-          <div
-            className="donate-card"
-            onClick={() => (window.location.href = "/medical-support")}
-          >
-            <img src="/images/medical-help.jpg" alt="Medical Support" />
-            <h3>💊 Medical Support</h3>
+          <div className="donate-card" onClick={() => (window.location.href = "/money-donation")}>
+            <img src="/images/medical-help.jpg" alt="Money Donation" />
+            <h3>💰 Money Donation</h3>
           </div>
         </div>
       </section>
