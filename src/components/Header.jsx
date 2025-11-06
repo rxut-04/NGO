@@ -12,7 +12,7 @@ const Header = () => {
     <header className="header">
 
       <div className="logo-section">
-        <img src="/images/earth.gif" alt="Earth Logo" className="earth-logo" />
+        <img src="/images/spac.webp" alt="Earth Logo" className="earth-logo" />
         <h1 className="logo-title">NGO-CONNECT</h1>
       </div>
 
