@@ -11,20 +11,47 @@ const BirthdayBooking = () => {
     message: "",
   });
 
+  const [status, setStatus] = useState("");
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("🎂 Birthday celebration booking submitted successfully!");
-    console.log("Birthday Booking:", form);
+
+    try {
+      const response = await fetch("http://localhost:8082/ngo/BirthdayBookingServlet", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(form).toString(),
+      });
+
+      if (response.ok) {
+        setStatus("🎂 Birthday celebration booking submitted successfully!");
+        setForm({
+          ngoName: "",
+          date: "",
+          time: "",
+          location: "",
+          noOfPeople: "",
+          message: "",
+        });
+      } else {
+        setStatus("❌ Something went wrong. Please try again later.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setStatus("⚠️ Unable to connect to the server.");
+    }
   };
 
   return (
     <div className="celebration-booking-container birthday-bg">
       <h1>🎂 Birthday Celebration Booking</h1>
       <p>Make your birthday more meaningful by celebrating with those in need 💖</p>
+
+      {status && <div className="status-message">{status}</div>}
 
       <form className="celebration-form" onSubmit={handleSubmit}>
         <label>NGO Name:</label>
@@ -33,6 +60,7 @@ const BirthdayBooking = () => {
           name="ngoName"
           value={form.ngoName}
           onChange={handleChange}
+          placeholder="Enter NGO name"
           required
         />
 

@@ -75,7 +75,7 @@ body, html {
   position: relative;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 .slide {
@@ -267,6 +267,10 @@ body, html {
     font-size: 1rem;
   }
 
+  .hero-text{
+    top:70px
+  }
+
   .hero-buttons {
     flex-direction: column;
   }
@@ -275,3 +279,63 @@ body, html {
     width: 90%;
   }
 }
+
+/* 🎉 Booking Section */
+.booking-section {
+  background: #fdfdfd;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.booking-section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.booking-section p {
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+.booking-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  width: 280px;
+}
+
+.booking-card img {
+  width: 100%;
+  height: 180px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.booking-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.booking-card h3 {
+  margin-top: 15px;
+  color: #333;
+}
+
+.booking-card p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 8px;
+}
+

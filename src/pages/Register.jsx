@@ -17,22 +17,21 @@ const Register = () => {
       formData.append("email", email);
       formData.append("password", password);
 
-     
-
-      // For Register
-const response = await fetch("http://localhost:8082/ngo/api/register", {
-  method: "POST",
-  headers: { "Content-Type": "application/x-www-form-urlencoded" },
-  body: formData.toString(),
-});
-
-
+      // POST request to backend register API
+      const response = await fetch("http://localhost:8082/ngo/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: formData.toString(),
+      });
 
       const data = await response.json();
 
+      // Handle backend response
       if (data.status === "success") {
         alert("Registration Successful 🎉");
-        navigate("/login");
+        navigate("/login"); // redirect to login page
+      } else if (data.status === "email_exists") {
+        alert("Email already registered ❌");
       } else {
         alert(data.message || "Registration Failed ❌");
       }
