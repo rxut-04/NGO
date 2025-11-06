@@ -1,0 +1,10 @@
+.BIN/
+System Volume Information/
+*.tmp
+*.log
+*.exe
+*.zip
+*.pdf
+*.mp4
+*.jpg
+*.png
