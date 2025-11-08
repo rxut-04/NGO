@@ -8,8 +8,13 @@ const FoodDonation = () => {
   const [ngoName, setNgoName] = useState("");
   const [items, setItems] = useState([{ foodName: "", quantity: "", bestBefore: "" }]);
   const [submitted, setSubmitted] = useState(false);
+<<<<<<< HEAD
+  const [ngoName, setNgoName] = useState("");
+  const [items, setItems] = useState([{ foodName: "", quantity: "", bestBefore: "" }]);
+=======
 
   // -------------------- HANDLERS --------------------
+>>>>>>> 3e6123abe7a062c2edb1e970cc8af890402a92b9
 
   // Select donation type
   const handleTypeSelect = (type) => {
@@ -79,12 +84,40 @@ const FoodDonation = () => {
     return true;
   };
 
+<<<<<<< HEAD
+  const handleSubmit = async (e) => {
+=======
   // -------------------- SUBMIT --------------------
   const handleSubmit = (e) => {
+>>>>>>> 3e6123abe7a062c2edb1e970cc8af890402a92b9
     e.preventDefault();
 
     if (!validateForm()) return;
 
+<<<<<<< HEAD
+    try {
+      // ✅ Correct fetch setup for JSON to Java Servlet
+      const res = await fetch("http://localhost:8082/ngo/api/food-donation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ngoName, donationType, items }),
+      });
+
+      if (!res.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await res.json();
+      alert(data.message);
+
+      if (data.message.toLowerCase().includes("success")) {
+        setSubmitted(true);
+      }
+    } catch (err) {
+      console.error("Error:", err);
+      alert("Something went wrong while registering. Please try again.");
+    }
+=======
     const donationData = {
       ngoName,
       donationType,
@@ -96,14 +129,20 @@ const FoodDonation = () => {
     setSubmitted(true);
 
     // Simulate API call or backend post here if needed
+>>>>>>> 3e6123abe7a062c2edb1e970cc8af890402a92b9
   };
 
   // -------------------- RENDER --------------------
   return (
     <div className="food-donation-container">
+<<<<<<< HEAD
+      <h2>Food Donation</h2>
+
+=======
       <h2 className="title">🍱 Food Donation</h2>
 
       {/* ---------- Step 1: Select Donation Type ---------- */}
+>>>>>>> 3e6123abe7a062c2edb1e970cc8af890402a92b9
       <div className="donation-type-buttons">
         <button
           className={donationType === "Ready-made Packed" ? "active" : ""}
@@ -167,10 +206,11 @@ const FoodDonation = () => {
                   onChange={(e) => handleItemChange(index, e)}
                   min="1"
                   required
-                />
+                />01
               </label>
 
               <label>
+
                 Best Before:
                 <input
                   type="date"
