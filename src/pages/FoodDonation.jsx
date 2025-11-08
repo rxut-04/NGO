@@ -5,11 +5,8 @@ import "./FoodDonation.css";
 const FoodDonation = () => {
   const [donationType, setDonationType] = useState("");
   const [submitted, setSubmitted] = useState(false);
-
   const [ngoName, setNgoName] = useState("");
-  const [items, setItems] = useState([
-    { foodName: "", quantity: "", bestBefore: "" },
-  ]);
+  const [items, setItems] = useState([{ foodName: "", quantity: "", bestBefore: "" }]);
 
   const handleTypeSelect = (type) => {
     setDonationType(type);
@@ -34,7 +31,7 @@ const FoodDonation = () => {
     setItems(newItems);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!ngoName) {
@@ -42,45 +39,34 @@ const FoodDonation = () => {
       return;
     }
 
-    for (let item of items) {
-      if (!item.foodName || !item.quantity || !item.bestBefore) {
-        alert("All food item fields are required");
-        return;
-      }
-      const quantity = Number(item.quantity);
-      if (isNaN(quantity) || quantity <= 0) {
-        alert("Quantity must be positive number");
-        return;
-      }
-      const today = new Date();
-      const bestBefore = new Date(item.bestBefore);
-      if (bestBefore < today) {
-        alert("Best Before date must be today or later");
-        return;
+    try {
+      // ✅ Correct fetch setup for JSON to Java Servlet
+      const res = await fetch("http://localhost:8082/ngo/api/food-donation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ngoName, donationType, items }),
+      });
+
+      if (!res.ok) {
+        throw new Error("Network response was not ok");
       }
 
-      // Type-specific validations
-      if (donationType === "Ready-made Packed" && quantity > 50) {
-        alert("Ready-made packed food cannot exceed 50 kg.");
-        return;
+      const data = await res.json();
+      alert(data.message);
+
+      if (data.message.toLowerCase().includes("success")) {
+        setSubmitted(true);
       }
-      if (donationType === "Uncooked (Grains, Pulses, Oil)" && (quantity < 1 || quantity > 100)) {
-        alert("Uncooked food must be between 1 kg and 100 kg.");
-        return;
-      }
-      if (donationType === "Remaining Food (Hotels/Functions)" && quantity > 20) {
-        alert("Remaining food donation cannot exceed 20 kg per pickup.");
-        return;
-      }
+    } catch (err) {
+      console.error("Error:", err);
+      alert("Something went wrong while registering. Please try again.");
     }
-
-    setSubmitted(true);
-    console.log("Donation Submitted:", { ngoName, donationType, items });
   };
 
   return (
     <div className="food-donation-container">
       <h2>Food Donation</h2>
+
       <div className="donation-type-buttons">
         <button onClick={() => handleTypeSelect("Ready-made Packed")}>Ready-made Packed</button>
         <button onClick={() => handleTypeSelect("Uncooked (Grains, Pulses, Oil)")}>Uncooked</button>
@@ -121,9 +107,10 @@ const FoodDonation = () => {
                   onChange={(e) => handleItemChange(index, e)}
                   min="1"
                   required
-                />
+                />01
               </label>
               <label>
+
                 Best Before:
                 <input
                   type="date"
