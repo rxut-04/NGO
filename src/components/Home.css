@@ -1,9 +1,16 @@
 /* Hero Section */
 .hero-section {
+<<<<<<< HEAD
   margin-top:5px;
   padding-top: 0%;
 }
 
+=======
+  margin-top: 5px;
+}
+
+
+>>>>>>> c6f339aafb86e2560d8a752ef78677a088eb3cc3
 .hero-section img {
   /* margin-top:5px; */
   width: 100%;
