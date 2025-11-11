@@ -14,9 +14,16 @@ const Welcome = () => {
   ];
 
   useEffect(() => {
+<<<<<<< HEAD
+    // Redirect to Home after 3 seconds
+    const timer = setTimeout(() => {
+      navigate("/home");
+    }, 4000);
+=======
     const bgTimer = setInterval(() => {
       setBgIndex(prev => (prev + 1) % backgrounds.length);
     }, 3000);
+>>>>>>> 236add8be1fa8e4b91a4ea5fbc854e46e14dbd2e
 
     const timer = setTimeout(() => {
       navigate("/home");
