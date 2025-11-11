@@ -16,6 +16,8 @@ import Volunteers from "./pages/Volunteers";
 import EventSupport from "./pages/EventSupport";
 import ThankYouLetter from "./pages/ThankYouLetter";
 import AdoptChild from "./pages/AdoptChild";
+import AdminLogin from "./pages/AdminLogin";
+import AdminPanel from "./pages/AdminPanel";
 
 import "aos/dist/aos.css";
 import Header from "./components/Header";
@@ -25,7 +27,7 @@ function Layout() {
   const location = useLocation();
 
   // ✅ Hide Header & Footer on Welcome and Thank You page
-  const hideHeaderFooter = location.pathname === "/" || location.pathname === "/thank-you";
+  const hideHeaderFooter = location.pathname === "/" || location.pathname === "/thank-you" || location.pathname === "/admin-panel" || location.pathname === "/admin-login" || location.pathname == "/donate-options"
 
   return (
     <>
@@ -43,7 +45,9 @@ function Layout() {
         <Route path="/oldthings-donation" element={<OldThingsDonation />} />
         <Route path="/money-donation" element={<MoneyDonation />} />
         <Route path="/adopt-child" element={<AdoptChild />} />
-        
+        <Route path="/admin-login" element={<AdminLogin />} />
+        <Route path="/admin-panel" element={<AdminPanel />} />
+
         <Route path="/event-support" element={<EventSupport />} />
         <Route path="/occasion-booking" element={<OccasionBooking />} />
 

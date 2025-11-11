@@ -13,7 +13,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    AOS.init({ duration: 800, once: true });
+    AOS.init({ duration: 800, once: true, easing: "ease-in-out" });
   }, []);
 
   const donations = [
@@ -31,30 +31,31 @@ const Home = () => {
   return (
     <div className="home-container">
       {/* Hero / Slideshow */}
-      <section className="hero-section" data-aos="fade-up">
+      <section className="hero-section" data-aos="fade-down" data-aos-duration="1200">
         <Slideshow />
       </section>
 
       {/* About Section */}
-      <section className="about-section" data-aos="fade-right">
+      <section className="about-section" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
         <h2>Who We Are</h2>
         <p>
           <strong>NGO-CONNECT</strong> is a non-profit organization dedicated to
-          supporting children . Our mission is to create a world where
+          supporting children. Our mission is to create a world where
           every child has access to education, nutrition, and care.
         </p>
       </section>
 
       {/* Donations Section */}
       <section className="donations-section">
-        <h2 data-aos="fade-left">Donate & Support</h2>
+        <h2 data-aos="fade-left" data-aos-duration="1000">Donate & Support</h2>
         <div className="donation-grid">
           {donations.map((item, index) => (
             <div
               className="donation-card"
               key={index}
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
+              data-aos="zoom-in"
+              data-aos-delay={index * 150} // stagger animation
+              data-aos-duration="800"
             >
               <div className="icon">{item.icon}</div>
               <h3>{item.title}</h3>
@@ -66,7 +67,7 @@ const Home = () => {
       </section>
 
       {/* Inspirational Quotes */}
-      <section className="quotes-section" data-aos="fade-up">
+      <section className="quotes-section" data-aos="fade-up" data-aos-duration="1000">
         <h2>Inspirational Thoughts</h2>
         <p>“Education is the most powerful weapon which you can use to change the world.” — Nelson Mandela</p>
         <p>“An investment in knowledge pays the best interest.” — Benjamin Franklin</p>
