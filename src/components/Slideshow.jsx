@@ -3,8 +3,8 @@ import "./Slideshow.css";
 
 // Images and associated thoughts/messages
 const slides = [
-  { src: "/images/os6.jpg", text: "Happiness is not so much in having as sharing.We make a living by what we get,but we make a life by what we gave." },
   { src: "/images/os6.jpg", text: "The best way to find yourself is to lose yourself in the service of others." },
+  { src: "/images/os6.jpg", text: "Happiness is not so much in having as sharing.We make a living by what we get,but we make a life by what we gave." },
   { src: "/images/os6.jpg", text: "Your little help can make a big difference." },
   { src: "/images/os6.jpg", text: "God has given us two hands:one to receive with and the other to give with." },
 ];
