@@ -1,10 +1,9 @@
 import React from "react";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
   const location = useLocation();
-  const navigate = useNavigate();
 
   // Hide header on Welcome page
   if (location.pathname === "/") return null;

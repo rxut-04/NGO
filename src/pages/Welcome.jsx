@@ -26,7 +26,7 @@ const Welcome = () => {
       clearInterval(bgTimer);
       clearTimeout(timer);
     };
-  }, [navigate]);
+  }, [navigate, backgrounds.length]);
 
   return (
     <div className="welcome-container" style={{ background: backgrounds[bgIndex] }}>

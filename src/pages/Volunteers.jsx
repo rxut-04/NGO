@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Users, Heart, Award } from "lucide-react";
 
 const Volunteers = () => {
   const volunteers = [

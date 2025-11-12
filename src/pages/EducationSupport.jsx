@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./EducationSupport.css";
@@ -8,6 +8,10 @@ const EducationSupport = () => {
   const [amount, setAmount] = useState("");
   const [description, setDescription] = useState("");
   const [selectedNGO, setSelectedNGO] = useState("");
+
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+  }, []);
 
   const donationOptions = [
     { name: "🎓 School Fees", type: "fees", info: "Help a child continue their education by contributing to their school fees." },
