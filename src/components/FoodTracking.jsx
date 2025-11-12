@@ -3,22 +3,26 @@ import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import "../utils/leafletFix"; // Fix Leaflet default icon paths
 
 const icons = {
   Good: new L.Icon({
     iconUrl: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
     iconSize: [25, 41],
     iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
   }),
   Average: new L.Icon({
     iconUrl: "https://maps.google.com/mapfiles/ms/icons/orange-dot.png",
     iconSize: [25, 41],
     iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
   }),
   Leftover: new L.Icon({
     iconUrl: "https://maps.google.com/mapfiles/ms/icons/yellow-dot.png",
     iconSize: [25, 41],
     iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
   }),
 };
 

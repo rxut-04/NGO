@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import FoodTracking from "../components/FoodTracking";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+import "../utils/leafletFix"; // Fix Leaflet default icon paths
 import "./FoodDonation.css";
 
 // NGO sample data
@@ -16,6 +18,7 @@ const ngoIcon = new L.Icon({
   iconUrl: "https://maps.google.com/mapfiles/ms/icons/blue-dot.png",
   iconSize: [25, 41],
   iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
 });
 
 const FoodDonation = () => {
