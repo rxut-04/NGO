@@ -20,6 +20,9 @@ import AdminPanel from "./pages/AdminPanel";
 import ThankYouLetter from "./pages/ThankYouLetter";
 import MedicalSupport from "./pages/MedicalSupport"; // ✅ Added new page
 import EducationSupport from "./pages/EducationSupport";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import RefundPolicy from "./pages/RefundPolicy";
 
 
 import Header from "./components/Header";
@@ -75,6 +78,12 @@ function Layout() {
 
         {/* ✅ Others */}
         <Route path="/thank-you" element={<ThankYouLetter />} />
+        
+        {/* ✅ Policy Pages (Required for Razorpay) */}
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+        <Route path="/refund-policy" element={<RefundPolicy />} />
+        
         <Route
           path="*"
           element={
